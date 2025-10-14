@@ -1,8 +1,8 @@
 services:
   web:
     build: 
-      context: .
-      dockerfile: Dockerfile
+      context: .. #portfolio
+      dockerfile: ./deploy/Dockerfile
     container_name: ctportfolio
     ports:
       - "8810:80"
