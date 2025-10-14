@@ -2,11 +2,13 @@
 # 1-. partimos de una imagen de Docker con apache instaldo
 #FROM ubuntu + instalacion personal de Apache
 FROM httpd:2.4 
+RUN apt update
+RUN apt install nano
 #debemos consultar el docker hub (imagen) para ver variables de entorno
 #directorios de trabajo etc etc
 #directorio de trabajo dentro del contenedor
 WORKDIR /usr/local/apache2/htdocs
-# el directorio . es relativo al contexto del Docker Compose
+# el directorio . es relativo al contexto del Docker
 COPY ./src .
 EXPOSE 80
 
