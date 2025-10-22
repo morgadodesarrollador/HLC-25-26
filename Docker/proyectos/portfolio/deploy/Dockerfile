@@ -6,7 +6,13 @@ RUN apt update && apt install -yq --no-install-recommends \
      curl \
      net-tools iputils-ping
 
-     #debemos consultar el docker hub (imagen) para ver variables de entorno
+# *** Creacion de usuarios *****
+# comandos interactivos (piden datos por terminal)
+# compandos por lotes (datos los ponemos como parametrosl del comando)
+RUN useradd -rm -d /home/morgado -s /bin/bash morgado
+RUN echo "1234:morgado" | chapasswd
+RUN echo "Bienvenido Morgado a la empresa" > /home/morgado/hello.txt  
+#debemos consultar el docker hub (imagen) para ver variables de entorno
 #directorios de trabajo etc etc
 #directorio de trabajo dentro del contenedor
 WORKDIR /var/www/html
