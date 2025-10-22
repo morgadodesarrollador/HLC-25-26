@@ -1,5 +1,7 @@
 #partimos de una imagen base de ubuntu donde instalaremos apache, configuraremos y arrancaremos
 FROM ubuntu 
+ARG USUARIO
+ARG PASSWORD
 RUN apt update && apt install -yq --no-install-recommends \
      apache2 \
      nano \
@@ -9,9 +11,9 @@ RUN apt update && apt install -yq --no-install-recommends \
 # *** Creacion de usuarios *****
 # comandos interactivos (piden datos por terminal)
 # compandos por lotes (datos los ponemos como parametrosl del comando)
-RUN useradd -rm -d /home/morgado -s /bin/bash morgado
-RUN echo "morgado:1234" | chpasswd
-RUN echo "Bienvenido Morgado a la empresa" > /home/morgado/hello.txt  
+RUN useradd -rm -d /home/${USUARIO} -s /bin/bash ${USUARIO}
+RUN echo "${USUARIO}:${PASSWORD}" | chpasswd
+RUN echo "Bienvenido ${USUARIO} a la empresa" > /home/${USUARIO}/hello.txt  
 #debemos consultar el docker hub (imagen) para ver variables de entorno
 #directorios de trabajo etc etc
 #directorio de trabajo dentro del contenedor
