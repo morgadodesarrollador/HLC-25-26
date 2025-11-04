@@ -8,6 +8,11 @@ RUN apt update && apt install -yq --no-install-recommends \
      curl \
      net-tools iputils-ping
 
+#Cofiguracion Base:
+# - 
+#     
+#Configuracion del Servicio:
+
 # *** Creacion de usuarios *****
 # comandos interactivos (piden datos por terminal)
 # compandos por lotes (datos los ponemos como parametrosl del comando)
