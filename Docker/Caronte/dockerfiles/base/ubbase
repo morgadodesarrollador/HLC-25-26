@@ -7,7 +7,7 @@ RUN apt update && apt install -yq --no-install-recommends \
      sudo
 
 RUN mkdir /root/admin
-RUN COPY ./dockerfiles/base/admin/start.sh /root/admin
+COPY ./dockerfiles/base/admin/start.sh /root/admin
 RUN chmod +x /root/admin/start.sh
 
 RUN useradd -rm -d /home/${USUARIO} -s /bin/bash ${USUARIO}
