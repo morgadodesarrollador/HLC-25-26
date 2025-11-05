@@ -9,7 +9,12 @@ RUN apt update && apt install -yq --no-install-recommends \
 # copiar los script's del entrypoint (sc ppal ---> otrs sc' personalizadas)
 RUN mkdir -p /root/admin/base
 WORKDIR /root/admin/base
-COPY ./dockerfiles/base/admin/start.sh .
+# 1 . --> relativo al directorio (base) donde se encuentra ubbase --> docker build 
+COPY ./admin/start.sh .
+
+# 1 . --> realtivo a la ruta del contexto (Caronte) en el docker-compose-yml del proyectbase
+# 2 . --> workdir dentro del contenedor
+#COPY ./dockerfiles/base/admin/start.sh .
 RUN chmod +x ./start.sh
 
 
