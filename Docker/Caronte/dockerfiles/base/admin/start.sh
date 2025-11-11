@@ -1,4 +1,5 @@
 #!/bin/bash
+# carga las variables de entono pasadas desde el D.Compose
 set -e
 
 newUser(){
