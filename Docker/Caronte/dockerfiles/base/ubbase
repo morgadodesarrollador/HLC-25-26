@@ -1,6 +1,7 @@
 FROM ubuntu
 
 
+
 RUN apt update && apt install -yq --no-install-recommends \
      nano \
      git curl  wget \
@@ -20,7 +21,7 @@ COPY ./dockerfiles/base/admin/start.sh .
 RUN chmod +x ./start.sh
 
 
-# el primer comando que use el contenedor para mantenerse vivo
+# el primer comando que ejecuta el contenedor para mantenerse vivo
 #CMD ["tail", "-f", "/dev/null"]
 
 ENTRYPOINT [ "./start.sh" ]
