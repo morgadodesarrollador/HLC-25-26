@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 newUser(){
     useradd -rm -d /home/${USUARIO} -s /bin/bash ${USUARIO}
