@@ -10,7 +10,7 @@ main() {
     # gestion del ssh ---> gestSsh.sh
     # ...
     touch /root/logs/informe.log
-  #  newUser
+    newUser
     # encargada de dejar este contendor vivo en BGround
     tail -f /dev/null
     ## script's que se encargar de configurar el imagen/contenedor
