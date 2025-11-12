@@ -2,7 +2,7 @@
 # carga las variables de entono pasadas desde el D.Compose
 set -e
 
-chek_usuario(){
+check_usuario(){
     if grep -q "${USUARIO}" /etc/passwd
     then    
         echo "${USUARIO} se encuentra en el sistema" >> /root/logs/informe.log
