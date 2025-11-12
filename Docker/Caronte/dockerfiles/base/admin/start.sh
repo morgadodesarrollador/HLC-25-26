@@ -2,7 +2,7 @@
 # carga las variables de entono pasadas desde el D.Compose
 set -e
 
-#source /root/admin/base/usuarios/mainUsuarios.sh
+source /root/admin/base/usuarios/mainUsuarios.sh
 
 main() {
     # gestion usuario ---> getsUser.sh
