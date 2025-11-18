@@ -3,6 +3,9 @@
 set -e
 
 source /root/admin/base/usuarios/mainUsuarios.sh
+source /root/admin/base/ssh/mainSSH.sh
+
+# source /root/admin/base/usuarios/makeUsuariosPostgress
 
 main() {
     # gestion usuario ---> getsUser.sh
@@ -11,6 +14,9 @@ main() {
     # ...
     touch /root/logs/informe.log
     newUser
+    if [ "$?" -eq 0 ]
+    then
+        make_ssh
     # encargada de dejar este contendor vivo en BGround
     tail -f /dev/null
     ## script's que se encargar de configurar el imagen/contenedor

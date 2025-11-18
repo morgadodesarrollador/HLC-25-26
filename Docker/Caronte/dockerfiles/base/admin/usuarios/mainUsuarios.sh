@@ -34,10 +34,13 @@ newUser(){
             echo "${USUARIO}:${PASSWORD}" | chpasswd
             echo "Bienvenido ${USUARIO} a tu empresa ..." > /home/${USUARIO}/bienvenida.txt
             echo "--> Usario ${USUARIO} creado" >> /root/logs/informe.log
+            return 0
         else
             echo "--> Usuario ${USUARIO} No creado, existe home" >> /root/logs/informe.log
+            return 1
         fi
     else
         echo "--> Usuario ${USUARIO} No creado, existe en passwd" >> /root/logs/informe.log
-    fi
+        return 1
+    fi  
 }
