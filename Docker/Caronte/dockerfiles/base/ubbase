@@ -23,12 +23,10 @@ RUN mkdir /var/run/sshd
 EXPOSE 22
 
 RUN mkdir ./common
-COPY ./common/id_ed25519.pub ./common/.
+COPY ./common/id_ed25519.pub ./common
 COPY ./dockerfiles/base/admin .
 RUN chmod +x ./start.sh
-### MAL por ser ${USUARIO} (entorno) --> contenedor
-# no definido en tiempo de build (compilacion) --> arguments
-RUN cp . /home/${USUARIO}/admin/base -R
+
 
 # el primer comando que ejecuta el contenedor para mantenerse vivo
 #CMD ["tail", "-f", "/dev/null"]
