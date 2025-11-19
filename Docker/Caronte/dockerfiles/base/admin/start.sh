@@ -14,10 +14,10 @@ main() {
     # ...
     touch /root/logs/informe.log
     newUser
-    if [ "$?" -eq 0 ]
-    then
-        make_ssh
-    fi
+    # if [ "$?" -eq 0 ]
+    # then
+    #     make_ssh
+    # fi
 
     # encargada de dejar este contendor vivo en BGround
     tail -f /dev/null
