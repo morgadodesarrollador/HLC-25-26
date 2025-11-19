@@ -7,6 +7,6 @@ make_ssh(){
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
     mkdir -p /home/${USUARIO}/.ssh
-    cp /root/common/id_ed25519.pub /home/${USUARIO}/.ssh/
-    
+    cp /root/common/id_ed25519.pub /home/${USUARIO}/.ssh/d_ed25519.pub
+
 }
