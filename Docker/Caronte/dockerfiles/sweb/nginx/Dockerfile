@@ -1,5 +1,4 @@
-ARG AUTOR
-FROM ${AUTOR}/ubuntubase
+FROM morgadoberruezo/ubuntubase
 
 
 USER root
