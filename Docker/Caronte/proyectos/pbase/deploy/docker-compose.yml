@@ -14,7 +14,7 @@ services:
         ipv4_address: ${IP}
 
 networks:
-  netcaronteweb:
+  netcarontewebnginx:
     ipam:
       driver: default
       config:
