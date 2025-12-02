@@ -1,4 +1,4 @@
-FROM morgadoberruezo/ubuntubase
+FROM morgadoberruezo/ubbase
 
 
 USER root
