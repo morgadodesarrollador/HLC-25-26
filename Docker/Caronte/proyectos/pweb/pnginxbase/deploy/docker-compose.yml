@@ -15,11 +15,11 @@ services:
       - ./logs:/root/logs
       # - ./html:/var/www/html
     networks:
-      netcaronte:
+      netcarontewebnginx:
         ipv4_address: ${IP}
 
 networks:
-  netcaronte:
+  netcarontewebnginx:
     ipam:
       driver: default
       config:

@@ -10,11 +10,11 @@ services:
     volumes:
       - ./logs:/root/logs
     networks:
-      netcaronte:
+      netcarontebase:
         ipv4_address: ${IP}
 
 networks:
-  netcarontewebnginx:
+  netcarontebase:
     ipam:
       driver: default
       config:
