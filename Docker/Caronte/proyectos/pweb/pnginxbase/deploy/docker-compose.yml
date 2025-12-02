@@ -1,7 +1,6 @@
-version: "3.9"
 services:
   servidor:
-    platform: linux/amd64
+    # platform: linux/amd64
     build:
       context: ${CONTEXTO}
       dockerfile: ./dockerfiles/sweb/nginx/Dockerfile
@@ -10,21 +9,18 @@ services:
     hostname: ${HOSTNAME}
     env_file:
       - ./.env
-    environment:
-      - USUARIO=${USUARIO}
-      - PASSWORD=${PASSWD}
     ports:
-      - "${PORT_ORIGEN}:80"
+      - "${PORT_WEB}:80"
     volumes:
       - ./logs:/root/logs
       # - ./html:/var/www/html
     networks:
       netcaronte:
-        ipv4_address: 172.120.10.3
+        ipv4_address: ${IP}
 
 networks:
   netcaronte:
     ipam:
       driver: default
       config:
-        - subnet: 172.120.10.0/24
+        - subnet: ${SUBNET}

@@ -2,27 +2,10 @@ ARG AUTOR
 FROM ${AUTOR}/ubuntubase
 
 
-ARG USUARIO
-ARG CONTEXT
-ARG PROYECTO
-ARG TZ
-ENV USUARIO="pepe"
-ENV PASSWORD="abc"
-
 USER root
 RUN apt update && apt install -yq --no-install-recommends \
     nginx
 
-# RUN mkdir /root/admin/nginx
-
-# COPY ./proyectos/${PROYECTO}/deploy/config/default.conf /etc/nginx/conf.d/default.conf
-
-# verificar en entrypoint la existencia de /etc/nginx/conf.d y /var/www/html
-# COPY ./proyectos/${PROYECTO}/deploy/config /root/admin/nginx
-
-# COPY ./proyectos/${PROYECTO}/deploy/html /var/www/html
-# RUN mkdir /home/${USUARIO}/app
-# COPY ./proyectos/${PROYECTO}/app /home/${USUARIO}/app
 
 RUN chown -R www-data /var/www/html
 RUN chmod -R 755 /var/www/html
@@ -32,10 +15,9 @@ RUN chmod -R 755 /var/www/html
 RUN mkdir -p /var/log/nginx
 EXPOSE 80
 
-USER root
 RUN mkdir /root/admin/sweb/nginx
-COPY ./dockerfiles/sweb/nginx /root/admin/nginx
-RUN chmod +x /root/admin/nginx/admin/start.sh
+COPY ./dockerfiles/sweb/nginx /root/admin/sweb/nginx
+RUN chmod +x /root/admin/sweb/nginx/admin/start.sh
 RUN mv /var/www/html/index.nginx-debian.html /var/www/html/index.html
-WORKDIR /root/admin/nginx
+WORKDIR /root/admin/sweb/nginx
 ENTRYPOINT ["./admin/start.sh"]
