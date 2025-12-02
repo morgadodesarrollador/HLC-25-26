@@ -6,6 +6,8 @@ PROYECTO=pbiblioteca
 
 USUARIO=morgado
 PASSWD=morgado
+CONTENEDOR=ctngnixbase
+
 HOSTNAME=nginx1
 PORT_SSH=45678
 

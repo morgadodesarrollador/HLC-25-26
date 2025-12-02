@@ -14,7 +14,7 @@ RUN chmod -R 755 /var/www/html
 RUN mkdir -p /var/log/nginx
 EXPOSE 80
 
-RUN mkdir /root/admin/sweb/nginx
+RUN mkdir -p /root/admin/sweb/nginx
 COPY ./dockerfiles/sweb/nginx /root/admin/sweb/nginx
 RUN chmod +x /root/admin/sweb/nginx/admin/start.sh
 RUN mv /var/www/html/index.nginx-debian.html /var/www/html/index.html
