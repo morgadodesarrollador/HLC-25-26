@@ -12,6 +12,7 @@ config_nginx(){
    # exec nginx -g "daemon off;"
    # Mantén el contenedor vivo
    #tail -f /dev/null
+   echo "nginx levantado en BGROUND en el sistema" >> /root/logs/informe.log
 }
 
 #....
@@ -26,7 +27,7 @@ main(){
    load_entrypoint_base
    config_nginx
  
-   # tail -f /dev/null 
+   tail -f /dev/null 
     
 }
 
