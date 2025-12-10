@@ -14,7 +14,7 @@ RUN apt-get install -y nodejs
 RUN npm install -g npm@latest
 
 RUN mkdir -p /home/${USUARIO}/app
-COPY ./proyectos/${PROYECTO}/src /home/{USUARIO}/app/{PROYECTO}
+COPY ./proyectos/${PROYECTO}/src /home/${USUARIO}/app/${PROYECTO}
 
 EXPOSE 3000
 RUN mkdir -p /root/admin/JS/react
