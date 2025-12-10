@@ -4,7 +4,7 @@ set -e
 
 load_entrypoint_nginx(){
    #ejecutar entrypoint ngin. Invoca a EP de base, configura nginx y lanza nginx &
-   /root/admin/nginx/admin/start.sh
+   bash /root/admin/sweb/nginx/admin/start.sh
 }
 
 config_react(){
