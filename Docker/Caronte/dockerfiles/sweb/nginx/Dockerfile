@@ -9,6 +9,7 @@ RUN apt update && apt install -yq --no-install-recommends \
     nginx
 
 
+
 RUN chown -R www-data /var/www/html
 RUN chmod -R 755 /var/www/html
 
@@ -16,6 +17,8 @@ RUN chmod -R 755 /var/www/html
 # el propietario de /var/www/html debe de ser www-data
 RUN mkdir -p /var/log/nginx
 EXPOSE 80
+
+COPY ./proyectos/${PROYECTO}/deploy/config/default.conf /etc/nginx/conf.d/default.conf
 
 RUN mkdir -p /root/admin/sweb/nginx
 COPY ./dockerfiles/sweb/nginx /root/admin/sweb/nginx
