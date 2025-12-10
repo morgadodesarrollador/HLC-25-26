@@ -1,5 +1,8 @@
+
 FROM morgadoberruezo/ubbase
 
+ARG CONTEXTO
+ARG PROYECTO
 
 USER root
 RUN apt update && apt install -yq --no-install-recommends \
