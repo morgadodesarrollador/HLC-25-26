@@ -5,6 +5,8 @@ services:
       dockerfile: ./dockerfiles/JS/react/Dockerfile
       args: #variables en DFILE para la construccion (build) de la imagen
         - PROYECTO=${PROYECTO}
+        - USUARIO=${USUARIO}
+        
     image: morgadoberruezo/ubreact
     container_name: ctreact
     env_file:
