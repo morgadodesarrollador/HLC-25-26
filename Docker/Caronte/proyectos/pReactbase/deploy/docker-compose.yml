@@ -11,6 +11,8 @@ services:
     container_name: ctreact
     env_file:
       - .env
+    volumes:
+      - ./logs:/root/logs
     ports:
       - "8810:80"
       - "3010:3000"
