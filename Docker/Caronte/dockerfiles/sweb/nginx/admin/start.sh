@@ -23,8 +23,8 @@ load_entrypoint_base(){
 }
 
 main(){
-   load_entrypoint_base
-   config_nginx
+   # load_entrypoint_base
+   # config_nginx
  
    tail -f /dev/null 
     
