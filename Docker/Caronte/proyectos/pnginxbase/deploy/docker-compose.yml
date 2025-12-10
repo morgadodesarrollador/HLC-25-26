@@ -8,6 +8,8 @@ services:
         - PASSWORD=1234
     image: morgadoberruezo/ubnginx
     container_name: ctnginx
+    volumes:
+      - ./logs:/root/logs
     env_file:
       - .env
     ports:
