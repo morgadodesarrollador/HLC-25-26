@@ -17,7 +17,7 @@ RUN mkdir -p /home/${USUARIO}/app
 COPY ./proyectos/${PROYECTO}/src /home/{USUARIO}/app/{PROYECTO}
 
 EXPOSE 3000
-RUN mkdir -p /root/admin/sweb/nginx
+RUN mkdir -p /root/admin/JS/react
 COPY ./dockerfiles/JS/react /root/admin/JS/react
 RUN chmod +x /root/admin/JS/react/admin/start.sh
 WORKDIR /root/admin/JS/react
