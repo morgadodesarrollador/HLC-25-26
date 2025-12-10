@@ -1,32 +1,19 @@
-FROM ubuntu
+FROM morgadoberruezo/ubnginx
 
-RUN apt update && apt install -yq --no-install-recommends \
-     nano \
-     git curl  wget \
-     iputils-ping net-tools \ 
-     sudo \
-     openssh-server \
-     ca-certificates
+# Actualiza los paquetes e instala herramientas necesarias
+RUN apt-get update && apt-get install -y curl gnupg software-properties-common
 
-# copiar los script's del entrypoint (sc ppal ---> otrs sc' personalizadas)
-RUN mkdir -p /root/admin/base
-WORKDIR /root/admin/base
-# 1 . --> relativo al directorio (base) donde se encuentra ubbase --> docker build 
-# COPY ./admin/start.sh .
+# Añade el repositorio oficial de Node.js (versión 16 LTS o ajusta a tu necesidad)
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 
-# 1 . --> realtivo a la ruta del contexto (Caronte) en el docker-compose-yml del proyectbase
-# docker compose up -d --build
-# 2 . --> workdir dentro del contenedor
-RUN mkdir /var/run/sshd
-EXPOSE 22
+# Instala Node.js (esto incluye npm)
+RUN apt-get install -y nodejs
 
-RUN mkdir ./common
-COPY ./common/id_ed25519.pub ./common
-COPY ./dockerfiles/base/admin .
-RUN chmod +x ./start.sh
+RUN npm install -g npm@latest
 
 
-# el primer comando que ejecuta el contenedor para mantenerse vivo
-#CMD ["tail", "-f", "/dev/null"]
-
-ENTRYPOINT [ "./start.sh" ]
+RUN mkdir -p /root/admin/sweb/nginx
+COPY ./dockerfiles/JS/react /root/admin/JS/react
+RUN chmod +x /root/admin/JS/react/admin/start.sh
+WORKDIR /root/admin/JS/react
+ENTRYPOINT ["./admin/start.sh"]
