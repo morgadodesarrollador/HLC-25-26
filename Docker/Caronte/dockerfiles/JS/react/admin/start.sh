@@ -33,7 +33,7 @@ config_react(){
 main(){
    load_entrypoint_nginx 
 #    config_git
-   config_react
+#    config_react
 
    tail -f /dev/null
 }
