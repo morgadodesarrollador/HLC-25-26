@@ -6,7 +6,8 @@ services:
       args: #variables en DFILE para la construccion (build) de la imagen
         - PROYECTO=${PROYECTO}
         - PASSWORD=1234
-    container_name: ctportfolioreact
+    image: morgadoberruezo/ubnginx
+    container_name: ctnginx
     env_file:
       - .env
     ports:
