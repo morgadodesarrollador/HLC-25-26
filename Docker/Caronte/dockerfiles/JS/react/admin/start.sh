@@ -24,7 +24,7 @@ config_react(){
       fi
       echo "dependencias instaladas..." >> /root/logs/informe.log
       # Ejecutar npm start
-      npm start &
+      npm start 
       if [ $? -ne 0 ]; then
          echo "Error al iniciar la aplicación. Abortando."
          exit 1
@@ -43,7 +43,7 @@ main(){
    # config_git
    config_react
 
-   tail -f /dev/null
+   # tail -f /dev/null
 }
 
 main
