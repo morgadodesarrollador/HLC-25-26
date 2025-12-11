@@ -8,6 +8,10 @@ load_entrypoint_nginx(){
    bash /root/admin/sweb/nginx/admin/start.sh
 }
 
+install_node(){
+   apt-get install -y nodejs
+   npm install -g npm@latest
+}
 config_react(){
     echo "*** Imagen de React *******" >> /root/logs/informe.log
     cd /home/${USUARIO}/app/${PROYECTO}
@@ -33,11 +37,12 @@ config_react(){
 
 main(){
    echo ${USUARIO} >> /root/logs/informe.log
-   load_entrypoint_nginx 
+   tail -f /dev/null
+   # load_entrypoint_nginx 
    # config_git
 #    config_react
 
-   tail -f /dev/null
+   
 }
 
 main

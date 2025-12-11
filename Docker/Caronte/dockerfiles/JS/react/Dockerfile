@@ -9,9 +9,9 @@ RUN apt-get update && apt-get install -y curl gnupg software-properties-common
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 
 # Instala Node.js (esto incluye npm)
-RUN apt-get install -y nodejs
+# RUN apt-get install -y nodejs
 
-RUN npm install -g npm@latest
+# RUN npm install -g npm@latest
 
 RUN mkdir -p /home/${USUARIO}/app
 COPY ./proyectos/${PROYECTO}/src /home/${USUARIO}/app/${PROYECTO}
