@@ -13,8 +13,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 
 # RUN npm install -g npm@latest
 
-RUN mkdir -p /home/${USUARIO}/app
-COPY ./proyectos/${PROYECTO}/src /home/${USUARIO}/app/${PROYECTO}
+# no crearlo en /home pq el usuario morgado no se crea en esta etapa
+RUN mkdir -p /root/${USUARIO}/app
+COPY ./proyectos/${PROYECTO}/src /root/${USUARIO}/app/${PROYECTO}
 
 EXPOSE 3000
 RUN mkdir -p /root/admin/JS/react

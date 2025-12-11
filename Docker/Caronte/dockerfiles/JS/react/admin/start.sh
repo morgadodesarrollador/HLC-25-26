@@ -4,13 +4,14 @@ set -e
 
 load_entrypoint_nginx(){
    #ejecutar entrypoint ngin. Invoca a EP de base, configura nginx y lanza nginx &
-   bash /root/admin/base/start.sh
-   # bash /root/admin/sweb/nginx/admin/start.sh
+   # bash /root/admin/base/start.sh
+   bash /root/admin/sweb/nginx/admin/start.sh
 }
 
 install_node(){
    apt-get install -y nodejs
    npm install -g npm@latest
+   npm -v >>  >> /root/logs/informe.log
 }
 config_react(){
     echo "*** Imagen de React *******" >> /root/logs/informe.log
@@ -39,6 +40,7 @@ main(){
    echo ${USUARIO} >> /root/logs/informe.log
    # tail -f /dev/null
    load_entrypoint_nginx 
+   install_node
    # config_git
 #    config_react
 
