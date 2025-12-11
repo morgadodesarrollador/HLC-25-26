@@ -41,7 +41,8 @@ main(){
    # tail -f /dev/null
    load_entrypoint_nginx 
     echo ${USUARIO} >> /root/logs/informe.log
-
+   tail -f /dev/null
+   
    # install_node
    # config_git
 #    config_react
