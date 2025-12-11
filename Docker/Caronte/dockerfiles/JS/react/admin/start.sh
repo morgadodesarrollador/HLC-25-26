@@ -12,7 +12,7 @@ load_entrypoint_nginx(){
 install_node(){
    apt-get install -y nodejs
    npm install -g npm@latest
-   npm -v >>  /root/logs/informe.log
+   # npm -v >>  /root/logs/informe.log
 }
 config_react(){
     echo "*** Imagen de React *******" >> /root/logs/informe.log
