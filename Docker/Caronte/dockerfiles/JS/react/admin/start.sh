@@ -42,7 +42,7 @@ main(){
    load_entrypoint_nginx 
     echo ${USUARIO} >> /root/logs/informe.log
 
-   install_node
+   # install_node
    # config_git
 #    config_react
 
