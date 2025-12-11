@@ -9,11 +9,7 @@ load_entrypoint_nginx(){
    
 }
 
-install_node(){
-   apt-get install -y nodejs
-   npm install -g npm@latest
-   # npm -v >>  /root/logs/informe.log
-}
+
 config_react(){
     echo "*** Imagen de React *******" >> /root/logs/informe.log
     cd /home/${USUARIO}/app/${PROYECTO}
@@ -40,9 +36,9 @@ config_react(){
 main(){
    # tail -f /dev/null
    load_entrypoint_nginx 
-    echo ${USUARIO} >> /root/logs/informe.log
+    echo "***** RECT ******" >> /root/logs/informe.log
    tail -f /dev/null
-   
+
    # install_node
    # config_git
 #    config_react

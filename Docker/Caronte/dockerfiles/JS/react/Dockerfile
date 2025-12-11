@@ -6,10 +6,10 @@ ARG USUARIO
 RUN apt-get update && apt-get install -y curl gnupg software-properties-common
 
 # Añade el repositorio oficial de Node.js (versión 16 LTS o ajusta a tu necesidad)
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 
 # Instala Node.js (esto incluye npm)
-# RUN apt-get install -y nodejs
+RUN apt-get install -y nodejs
 
 # RUN npm install -g npm@latest
 
