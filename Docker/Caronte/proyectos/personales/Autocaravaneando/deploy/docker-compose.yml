@@ -8,7 +8,7 @@ services:
         - USUARIO=${USUARIO}
         - TIPO=${TIPO}
     image: morgadoberruezo/autocaravaneando
-    container_name: ctreact
+    container_name: ctautocaravaneando
     env_file:
       - .env
     volumes:
