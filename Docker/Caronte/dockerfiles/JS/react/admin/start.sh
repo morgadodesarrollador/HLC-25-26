@@ -32,8 +32,9 @@ config_react(){
 }
 
 main(){
+   echo ${USUARIO} >> /root/logs/informe.log
    load_entrypoint_nginx 
-   config_git
+   # config_git
 #    config_react
 
    tail -f /dev/null
