@@ -12,7 +12,7 @@ load_entrypoint_nginx(){
 
 config_react(){
     echo "*** Imagen de React *******" >> /root/logs/informe.log
-    cd /home/${USUARIO}/app/${PROYECTO}
+    cd /root/${USUARIO}/app/${PROYECTO}
     echo "Dentro de ${PROYECTO}..." >> /root/logs/informe.log
    # Verifica si React con TypeScript ya está inicializado
     if [ ! -d "node_modules" ]; then
@@ -37,13 +37,13 @@ main(){
    # tail -f /dev/null
    load_entrypoint_nginx 
     echo "***** RECT ******" >> /root/logs/informe.log
-   tail -f /dev/null
+   
 
    # install_node
    # config_git
-#    config_react
+   config_react
 
-   
+   tail -f /dev/null
 }
 
 main
