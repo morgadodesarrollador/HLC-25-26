@@ -2,6 +2,7 @@ FROM morgadoberruezo/ubnginx
 
 ARG PROYECTO
 ARG USUARIO
+ARG TIPO
 # Actualiza los paquetes e instala herramientas necesarias
 RUN apt-get update && apt-get install -y curl gnupg software-properties-common
 
@@ -15,7 +16,7 @@ RUN apt-get install -y nodejs
 
 # no crearlo en /home pq el usuario morgado no se crea en esta etapa
 RUN mkdir -p /root/${USUARIO}/app
-COPY ./proyectos/${PROYECTO}/src /root/${USUARIO}/app/${PROYECTO}
+COPY ./proyectos/${TIPO}/${PROYECTO}/src /root/${USUARIO}/app/${PROYECTO}
 
 EXPOSE 3000
 RUN mkdir -p /root/admin/JS/react
