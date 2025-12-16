@@ -20,7 +20,7 @@ RUN chmod -R 755 /var/www/html
 RUN mkdir -p /var/log/nginx
 EXPOSE 80
 
-COPY ./proyectos/${PROYECTO}/deploy/config/default.conf /etc/nginx/conf.d/default.conf
+COPY ./proyectos/base/${PROYECTO}/deploy/config/default.conf /etc/nginx/conf.d/default.conf
 
 RUN mkdir -p /root/admin/sweb/nginx
 COPY ./dockerfiles/sweb/nginx /root/admin/sweb/nginx
