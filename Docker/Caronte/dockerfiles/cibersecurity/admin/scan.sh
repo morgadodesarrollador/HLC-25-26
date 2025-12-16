@@ -4,8 +4,8 @@
 load_ciber(){
     LOG_DIR="/root/logs"
     CONTAINER_NAME="${HOSTNAME}"
-    TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
-    LOG_FILE="$LOG_DIR/${CONTAINER_NAME}_ports_$TIMESTAMP.log"
+    # TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+    LOG_FILE="$LOG_DIR/${CONTAINER_NAME}_ports"
 
     echo "=== PORT AUDIT (SELF) ===" >> "$LOG_FILE"
     echo "Container: $CONTAINER_NAME" >> "$LOG_FILE"
@@ -39,7 +39,7 @@ scan(){
 
 main() {
     load_entrypoint_base
-    scan
+    scan &
 }
 
 main
