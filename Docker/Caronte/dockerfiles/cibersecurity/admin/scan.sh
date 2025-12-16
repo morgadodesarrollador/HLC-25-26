@@ -33,7 +33,7 @@ load_entrypoint_base(){
 scan(){
     while true; do
         load_ciber
-        sleep 3600
+        sleep 30
     done
 }
 
