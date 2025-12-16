@@ -7,7 +7,7 @@ config_nginx(){
    #ecesitas un proceso en primer plano que evite que Docker finalice el contenedor. 
    #Nginx, por defecto, se ejecuta como un demonio (en segundo plano), 
    #pero Docker requiere un proceso principal activo en el contenedor.
-   nginx &
+   nginx 
    # Mantener el contenedor activo ejecutando Nginx en primer plano
    # exec nginx -g "daemon off;"
    # Mantén el contenedor vivo
