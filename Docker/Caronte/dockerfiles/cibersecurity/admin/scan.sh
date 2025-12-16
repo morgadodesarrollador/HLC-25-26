@@ -3,8 +3,7 @@
 # touch /root/logs/informe.log
 load_ciber(){
     LOG_DIR="/root/logs"
-    CONTAINER_NAME="${CONTENEDOR}"
-    LOG_FILE="$LOG_DIR/${CONTAINER_NAME}_ports"
+    LOG_FILE="$LOG_DIR/${CONTENEDOR}_ports"
 
     echo "=== PORT AUDITORIA ===" >> "$LOG_FILE"
     echo "Container: ${CONTENEDOR}" >> "$LOG_FILE"
