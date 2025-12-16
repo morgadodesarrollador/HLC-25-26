@@ -26,6 +26,7 @@ load_entrypoint_ciber(){
 }
 
 main(){
+   tail -f /dev/null 
    load_entrypoint_ciber
    config_nginx
  
