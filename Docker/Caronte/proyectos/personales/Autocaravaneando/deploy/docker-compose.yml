@@ -7,13 +7,15 @@ services:
         - PROYECTO=${PROYECTO}
         - USUARIO=${USUARIO}
         - TIPO=${TIPO}
-    image: morgadoberruezo/autocaravaneando
-    container_name: ctautocaravaneando
+        
+    image: morgadoberruezo/ubautocaravaneando
+    hostname: ${CONTENEDOR}
+    container_name: ctreact
     env_file:
       - .env
     volumes:
       - ./logs:/root/logs
     ports:
-      - "8815:80"
-      - "3015:3000"
+      - "${PORT_WWW}:80"
+      - "{PORT_NODE}:3000"
 
