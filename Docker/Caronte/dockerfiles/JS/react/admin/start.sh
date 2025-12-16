@@ -29,7 +29,7 @@ config_react(){
    fi
    echo "* Dependencias instaladas..." >> /root/logs/informe.log
    # Ejecutar npm start
-   npm start &
+   npm start 
    if [ $? -ne 0 ]; then
       echo "* Error al iniciar la aplicación. Abortando."
       exit 1
