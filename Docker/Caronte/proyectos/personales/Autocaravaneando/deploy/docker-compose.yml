@@ -9,8 +9,8 @@ services:
         - TIPO=${TIPO}
         
     image: morgadoberruezo/ubautocaravaneando
-    hostname: ${HOSTNAME}
-    container_name: ctreact
+    hostname: ${CONTENEDOR}
+    container_name: ${CONTENEDOR}
     env_file:
       - .env
     volumes:

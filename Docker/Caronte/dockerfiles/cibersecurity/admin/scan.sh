@@ -3,11 +3,11 @@
 # touch /root/logs/informe.log
 load_ciber(){
     LOG_DIR="/root/logs"
-    CONTAINER_NAME="${HOSTNAME}"
+    CONTAINER_NAME="${CONTENEDOR}"
     LOG_FILE="$LOG_DIR/${CONTAINER_NAME}_ports"
 
-    echo "=== PORT AUDIT ===" >> "$LOG_FILE"
-    echo "Container: $CONTAINER_NAME" >> "$LOG_FILE"
+    echo "=== PORT AUDITORIA ===" >> "$LOG_FILE"
+    echo "Container: ${CONTENEDOR}" >> "$LOG_FILE"
     echo "" >> "$LOG_FILE"
 
     echo "--- Listening TCP/UDP ports ---" >> "$LOG_FILE"
@@ -18,7 +18,7 @@ load_ciber(){
     printenv | grep -i port >> "$LOG_FILE" 2>/dev/null || true
 
     echo "" >> "$LOG_FILE"
-    echo "=== END AUDIT ===" >> "$LOG_FILE"
+    echo "=== END AUDITORIA ===" >> "$LOG_FILE"
 
 }
 
