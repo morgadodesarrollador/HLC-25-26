@@ -13,23 +13,26 @@ load_entrypoint_nginx(){
 config_react(){
     echo "*** Imagen de React *******" >> /root/logs/informe.log
     cd /root/${USUARIO}/app/${PROYECTO}
-    echo "Dentro de ${PROYECTO}..." >> /root/logs/informe.log
+    echo "* Dentro de ${PROYECTO}..." >> /root/logs/informe.log
+    
+    npm install -g npm@11.7.0
+    echo "* npm@11.7.0 instalado ..." >> /root/logs/informe.log
    # Verifica si React con TypeScript ya está inicializado
     if [ ! -d "node_modules" ]; then
       # Ejecutar npm install
       npm install 
       if [ $? -ne 0 ]; then
-         echo "Error al instalar dependencias. Abortando." >> /root/logs/informe.log
+         echo "* Error al instalar dependencias. Abortando." >> /root/logs/informe.log
          exit 1
       fi
-      echo "dependencias instaladas..." >> /root/logs/informe.log
+      echo "* Dependencias instaladas..." >> /root/logs/informe.log
       # Ejecutar npm start
       npm start 
       if [ $? -ne 0 ]; then
-         echo "Error al iniciar la aplicación. Abortando."
+         echo "* Error al iniciar la aplicación. Abortando."
          exit 1
       fi
-      echo "Iniciando la aplicación en 3000.." >> /root/logs/informe.log
+      echo "* Iniciando la aplicación en 3000.." >> /root/logs/informe.log
     fi
 }
 
