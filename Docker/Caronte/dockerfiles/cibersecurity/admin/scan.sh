@@ -32,8 +32,8 @@ load_entrypoint_base(){
 
 main() {
     tail -f dev/null
-    load_entrypoint_base
-    load_ciber
+    #load_entrypoint_base
+   # load_ciber
 }
 
 main
