@@ -23,34 +23,33 @@ config_react(){
       # Ejecutar npm install
       npm install 
       if [ $? -ne 0 ]; then
-         echo "* Error al instalar dependencias. Abortando." >> /root/logs/informe.log
+         echo "Error al instalar dependencias. Abortando." >> /root/logs/informe.log
          exit 1
       fi
+      echo "dependencias instaladas..." >> /root/logs/informe.log
+      # Ejecutar npm start
+      npm start &
+      if [ $? -ne 0 ]; then
+         echo "Error al iniciar la aplicación. Abortando."
+         exit 1
+      fi
+      echo "Iniciando la aplicación en 3000.." >> /root/logs/informe.log
    fi
-   echo "* Dependencias instaladas..." >> /root/logs/informe.log
-   # Ejecutar npm start
-   npm start 
-   if [ $? -ne 0 ]; then
-      echo "* Error al iniciar la aplicación. Abortando."
-      exit 1
-   fi
-   echo "* Iniciando la aplicación en 3000.." >> /root/logs/informe.log
-
+  
    if [ ! -d "build" ]; then
       echo "Construyendo la aplicación React para producción..." >> /root/logs/informe.log
       # Ejecutar npm run build
-   #   npm run build 
-      # copiamos
+      npm run build 
       if [ $? -ne 0 ]; then
             echo "Error al construir la aplicación.">> /root/logs/informe.log
             exit 1
       fi
       # Mover al html
-      # cp -r ./build/* /var/www/html
-      # chown -R www-data /var/www/html
-      # chmod -R 755  /var/www/html
-      # echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
-      # echo "Todo completado exitosamente.">> /root/logs/informe.log
+      cp -r ./build/* /var/www/html
+      chown -R www-data /var/www/html
+      chmod -R 755  /var/www/html
+      echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
+      echo "Todo completado exitosamente.">> /root/logs/informe.log
    fi
    
 }
