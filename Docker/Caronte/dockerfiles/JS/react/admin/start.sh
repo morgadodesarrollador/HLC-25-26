@@ -37,20 +37,20 @@ config_react(){
    echo "* Iniciando la aplicación en 3000.." >> /root/logs/informe.log
 
    if [ ! -d "build" ]; then
-      echo "Construyendo la aplicación React para producción..." >> /root/logs/react.log
+      echo "Construyendo la aplicación React para producción..." >> /root/logs/informe.log
       # Ejecutar npm run build
       npm run build 
       # copiamos
       if [ $? -ne 0 ]; then
-            echo "Error al construir la aplicación.">> /root/logs/react.log
+            echo "Error al construir la aplicación.">> /root/logs/informe.log
             exit 1
       fi
       # Mover al html
-      cp -r ./build/* /var/www/html
-      chown -R www-data /var/www/html
-      chmod -R 755  /var/www/html
-      echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/react.log
-      echo "Todo completado exitosamente.">> /root/logs/react.log
+      # cp -r ./build/* /var/www/html
+      # chown -R www-data /var/www/html
+      # chmod -R 755  /var/www/html
+      # echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
+      # echo "Todo completado exitosamente.">> /root/logs/informe.log
    fi
    
 }
