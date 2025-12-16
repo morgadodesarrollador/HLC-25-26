@@ -39,7 +39,7 @@ config_react(){
 
 main(){
    # tail -f /dev/null
-   load_entrypoint_nginx 
+   load_entrypoint_nginx &
     echo "***** RECT ******" >> /root/logs/informe.log
    
 
