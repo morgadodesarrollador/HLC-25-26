@@ -27,13 +27,20 @@ load_ciber(){
 load_entrypoint_base(){
    #ejecutar entrypoint ubbase
    bash /root/admin/base/start.sh
-  
+
+}
+
+scan(){
+    while true; do
+        load_ciber
+        sleep 3600
+    done
 }
 
 main() {
     tail -f /dev/null
-    #load_entrypoint_base
-   # load_ciber
+    load_entrypoint_base
+    scan
 }
 
 main
