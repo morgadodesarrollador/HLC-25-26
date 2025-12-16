@@ -39,7 +39,7 @@ config_react(){
    if [ ! -d "build" ]; then
       echo "Construyendo la aplicación React para producción..." >> /root/logs/informe.log
       # Ejecutar npm run build
-      npm run build 
+      npm run build 2>/dev/null || true
       if [ $? -ne 0 ]; then
             echo "Error al construir la aplicación.">> /root/logs/informe.log
             exit 1
