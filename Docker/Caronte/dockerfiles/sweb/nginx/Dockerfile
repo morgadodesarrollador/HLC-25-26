@@ -1,5 +1,6 @@
 
-FROM morgadoberruezo/ubbase
+# FROM morgadoberruezo/ubbase
+FROM morgadoberruezo/ubsecurity
 
 ARG CONTEXTO
 ARG PROYECTO
