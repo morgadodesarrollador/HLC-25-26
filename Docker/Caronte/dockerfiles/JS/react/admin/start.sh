@@ -28,7 +28,7 @@ config_react(){
       fi
       echo "dependencias instaladas..." >> /root/logs/informe.log
       # Ejecutar npm start
-      npm start &
+      npm start 
       if [ $? -ne 0 ]; then
          echo "Error al iniciar la aplicación. Abortando."
          exit 1
@@ -45,14 +45,14 @@ config_react(){
             exit 1
       fi
       # Mover al html
-      cp -r ./build/* /var/www/html
-      echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
-      chown -R www-data /var/www/html
-      echo "propiedad del www-data /var/www/html..." >> /root/logs/informe.log
-      chmod -R 755  /var/www/html
-      echo "755 /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
-      echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
-      echo "Todo completado exitosamente.">> /root/logs/informe.log
+      # cp -r ./build/* /var/www/html
+      # echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
+      # chown -R www-data /var/www/html
+      # echo "propiedad del www-data /var/www/html..." >> /root/logs/informe.log
+      # chmod -R 755  /var/www/html
+      # echo "755 /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
+      # echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
+      # echo "Todo completado exitosamente.">> /root/logs/informe.log
    fi
    
 }
