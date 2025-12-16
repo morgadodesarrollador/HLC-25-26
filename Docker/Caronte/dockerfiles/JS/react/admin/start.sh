@@ -46,8 +46,11 @@ config_react(){
       fi
       # Mover al html
       cp -r ./build/* /var/www/html
+      echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
       chown -R www-data /var/www/html
+      echo "propiedad del www-data /var/www/html..." >> /root/logs/informe.log
       chmod -R 755  /var/www/html
+      echo "755 /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
       echo "Build movido a /var/www/html... Sirviendo nginx" >> /root/logs/informe.log
       echo "Todo completado exitosamente.">> /root/logs/informe.log
    fi
