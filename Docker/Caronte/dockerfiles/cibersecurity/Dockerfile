@@ -8,10 +8,10 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /root/security/admin 
-WORKDIR /root/security
+RUN mkdir -p /root/admin/security
+WORKDIR /root/admin/security
 
-COPY ./dockerfiles/cibersecurity/admin/scan.sh ./admin/scan.sh
+COPY ./dockerfiles/cibersecurity .
 RUN chmod +x ./admin/scan.sh
 
-ENTRYPOINT ["/audit/scan.sh"]
+ENTRYPOINT ["./admin/scan.sh"]
