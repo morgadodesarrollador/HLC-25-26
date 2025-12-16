@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /root/security/admin 
 WORKDIR /root/security
 
-COPY ./admin/scan.sh ./admin/scan.sh
+COPY ./dockerfiles/cibersecurity/admin/scan.sh ./admin/scan.sh
 RUN chmod +x ./admin/scan.sh
 
 ENTRYPOINT ["/audit/scan.sh"]
