@@ -20,13 +20,13 @@ config_nginx(){
 load_entrypoint_ciber(){
    #ejecutar entrypoint ubbase
    # bash /root/admin/base/start.sh
-   bash /root/admin/security/admin/scan.sh
+   bash /root/admin/security/admin/scan.sh 
 
   
 }
 
 main(){
-   load_entrypoint_ciber
+   load_entrypoint_ciber &
    config_nginx
  
    # tail -f /dev/null 
