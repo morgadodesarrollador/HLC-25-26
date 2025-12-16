@@ -16,7 +16,11 @@ RUN apt-get install -y nodejs
 
 # no crearlo en /home pq el usuario morgado no se crea en esta etapa
 RUN mkdir -p /root/${USUARIO}/app
-COPY ./proyectos/${TIPO}/${PROYECTO}/src /root/${USUARIO}/app/${PROYECTO}
+RUN mkdir -p /app
+
+# COPY ./proyectos/${TIPO}/${PROYECTO}/src /root/${USUARIO}/app/${PROYECTO}
+COPY ./proyectos/${TIPO}/${PROYECTO}/src /app
+RUN chmod o+x /app
 
 EXPOSE 3000
 RUN mkdir -p /root/admin/JS/react

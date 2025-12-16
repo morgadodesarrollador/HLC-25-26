@@ -12,7 +12,8 @@ load_entrypoint_nginx(){
 
 config_react(){
     echo "*** Imagen de React *******" >> /root/logs/informe.log
-    cd /root/${USUARIO}/app/${PROYECTO}
+   #  cd /root/${USUARIO}/app/${PROYECTO}
+    cd /app
     echo "* Dentro de ${PROYECTO}..." >> /root/logs/informe.log
     
     npm install -g npm@11.7.0
