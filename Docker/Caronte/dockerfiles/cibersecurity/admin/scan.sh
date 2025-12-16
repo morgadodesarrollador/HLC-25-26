@@ -4,12 +4,10 @@
 load_ciber(){
     LOG_DIR="/root/logs"
     CONTAINER_NAME="${HOSTNAME}"
-    # TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
     LOG_FILE="$LOG_DIR/${CONTAINER_NAME}_ports"
 
-    echo "=== PORT AUDIT (SELF) ===" >> "$LOG_FILE"
+    echo "=== PORT AUDIT ===" >> "$LOG_FILE"
     echo "Container: $CONTAINER_NAME" >> "$LOG_FILE"
-    echo "Timestamp: $TIMESTAMP" >> "$LOG_FILE"
     echo "" >> "$LOG_FILE"
 
     echo "--- Listening TCP/UDP ports ---" >> "$LOG_FILE"
