@@ -1,5 +1,5 @@
 services:
-  web:
+  webtaller:
     build: 
       context: ${CONTEXTO}
       dockerfile: ./proyectos/${TIPO}/${PROYECTO}/deploy/Dockerfile
