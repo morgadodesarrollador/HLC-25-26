@@ -6,6 +6,5 @@ spec:
   containers:
     - name: pod-webtaller
       image: morgadoberruezo/ubjambbptaller:latest
-      imagePullPolicy: Never
       ports:
         - containerPort: 80
