@@ -8,7 +8,8 @@ services:
         - USUARIO=${USUARIO}
         - TIPO=${TIPO}
         
-    image: ${FIRMA}/ub${INICIALES}${PROYECTO}
+    # image: ${FIRMA}/ub${INICIALES}${PROYECTO}
+    image: ${FIRMA}/ub${PROYECTO}
     hostname: ${CONTENEDOR}
     container_name: ${CONTENEDOR}
     env_file:
