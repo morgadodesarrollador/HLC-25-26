@@ -4,10 +4,10 @@ metadata:
   name: webtaller-config
   namespace: proyectotaller
 data:
-  CONTEXTO: "/home/morgado/devops/HLC/Docker/Caronte"
-  PROYECTO: "Autocaravaneando"
-  TIPO: "personales"
-  USUARIO: "morgado"
+  CONTEXTO: /home/morgado/devops/HLC/Docker/Caronte
+  PROYECTO: Autocaravaneando
+  TIPO: personales
+  USUARIO: morgado
   PORT_SSH: "45678"
   PORT_WWW: "8810"
   PORT_NODE: "3010"
