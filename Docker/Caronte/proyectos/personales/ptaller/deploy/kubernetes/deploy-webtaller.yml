@@ -17,6 +17,9 @@ spec:
         - name: webtaller
           image: morgadoberruezo/ubjambbptaller:latest
           # imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: webtaller-config
           ports:
             - containerPort: 80
           resources:
