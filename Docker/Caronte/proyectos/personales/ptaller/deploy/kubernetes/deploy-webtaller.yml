@@ -35,7 +35,7 @@ spec:
           #     mountPath: /etc/webtaller
           #     readOnly: true
       # 🔹 Definición del volumen desde el ConfigMap
-      volumes:
-        - name: webtaller-config-volume
-          configMap:
-            name: webtaller-config
+      # volumes:
+      #   - name: webtaller-config-volume
+      #     configMap:
+      #       name: webtaller-config
