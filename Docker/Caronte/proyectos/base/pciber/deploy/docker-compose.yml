@@ -1,5 +1,5 @@
 services:
-  web:
+  ub-ciberseguridad:
     build: 
       context: ${CONTEXTO}
       dockerfile: ./dockerfiles/cibersecurity/Dockerfile
