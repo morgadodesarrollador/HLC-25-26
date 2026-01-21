@@ -1,5 +1,5 @@
 services:
-  web:
+  miportfolio:
     build: 
       context: ${CONTEXTO}
       dockerfile: ./dockerfiles/JS/ES6/Dockerfile
