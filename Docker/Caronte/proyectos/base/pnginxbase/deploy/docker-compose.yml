@@ -1,5 +1,5 @@
 services:
-  web:
+  ub-nginx:
     build: 
       context: ${CONTEXTO}
       dockerfile: ./dockerfiles/sweb/nginx/Dockerfile
