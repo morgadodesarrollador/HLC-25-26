@@ -23,7 +23,7 @@ load_ciber(){
 }
 
 load_entrypoint_base(){
-   #ejecutar entrypoint ubbase
+   #ejecutar entrypoint ubbase en la imagen de ciberseguridad
    bash /root/admin/base/start.sh
 
 }
