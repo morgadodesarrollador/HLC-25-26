@@ -7,7 +7,7 @@ ARG TIPO
 
 
 # COPY ./proyectos/${TIPO}/${PROYECTO}/src /root/${USUARIO}/app/${PROYECTO}
-COPY ./proyectos/${TIPO}/${PROYECTO}/src/portfolio /var/www/html
+COPY ./proyectos/${TIPO}/${PROYECTO}/src/portfolio/* /var/www/html/*
 RUN chown -R www-data:www-data /var/www/html
 
 
