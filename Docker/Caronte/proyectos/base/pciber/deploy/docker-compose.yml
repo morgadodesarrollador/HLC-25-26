@@ -3,7 +3,7 @@ services:
     build: 
       context: ${CONTEXTO}
       dockerfile: ./dockerfiles/cibersecurity/Dockerfile
-      args: #variables en DFILE para la construccion (build) de la imagen
+      args: #variables en DFILE para la construccion (build) de la imagen dkjfhasdlfjhasl dfgjas
         - PROYECTO=${PROYECTO}
         - PASSWORD=1234
     image: morgadoberruezo/ubsecurity
