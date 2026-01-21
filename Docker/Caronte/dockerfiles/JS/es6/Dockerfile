@@ -10,7 +10,7 @@ ARG RUTA_APP=./proyectos/${TIPO}/${PROYECTO}/src/portfolio
 # COPY ./proyectos/${TIPO}/${PROYECTO}/src /root/${USUARIO}/app/${PROYECTO}
 RUN mkdir /app
 RUN echo ${RUTA_APP}
-COPY ./proyectos/${TIPO}/${PROYECTO}/src /app
+COPY ./proyectos/${TIPO}/${PROYECTO}/src/portfolio /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 
 
