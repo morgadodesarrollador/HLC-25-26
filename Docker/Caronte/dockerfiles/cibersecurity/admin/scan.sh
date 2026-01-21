@@ -37,8 +37,7 @@ scan(){
 
 main() {
     load_entrypoint_base
-    scan &
-    tail -f /dev/null
+    scan 
 }
 
 main
