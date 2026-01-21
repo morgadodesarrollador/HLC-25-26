@@ -29,6 +29,7 @@ load_entrypoint_base(){
 }
 
 scan(){
+    # ejecutar la auditoria cada 30 segundos
     while true; do
         load_ciber
         sleep 30
