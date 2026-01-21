@@ -5,6 +5,7 @@ load_ciber(){
     LOG_DIR="/root/logs"
     LOG_FILE="$LOG_DIR/${CONTENEDOR}_ports"
 
+    echo "******************** IMAGEN DE CIBERSEGURIDAD  ********************" >> "$LOG_FILE"
     echo "=== PORT AUDITORIA ===" >> "$LOG_FILE"
     echo "Container: ${CONTENEDOR}" >> "$LOG_FILE"
     echo "" >> "$LOG_FILE"
@@ -37,6 +38,7 @@ scan(){
 main() {
     load_entrypoint_base
     scan &
+    tail -f /dev/null
 }
 
 main
