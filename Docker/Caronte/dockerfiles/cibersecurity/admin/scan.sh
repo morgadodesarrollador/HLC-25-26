@@ -38,7 +38,7 @@ scan(){
 
 main() {
     load_entrypoint_base
-    scan 
+    scan &
 }
 
 main
