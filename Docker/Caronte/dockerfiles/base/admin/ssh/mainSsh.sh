@@ -11,7 +11,9 @@ config_ssh(){
         cat /root/admin/base/common/id_ed25519.pub >> /home/${USUARIO}/.ssh/authorized_keys
     fi
     # /etc/init.d/ssh start &
-    exec /usr/sbin/sshd -D & # dejar el ssh en background (2plano)
+    # exec /usr/sbin/sshd -D & # dejar el ssh en background (2plano)
+    exec /usr/sbin/sshd -D # dejar el ssh en background (2plano)
+
 }
 
 config_sudoers(){

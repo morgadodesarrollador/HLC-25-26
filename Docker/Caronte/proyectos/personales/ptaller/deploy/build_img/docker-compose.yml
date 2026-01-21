@@ -1,0 +1,9 @@
+services:
+  webtaller:
+    build: 
+      context: .. 
+      dockerfile: ./build_img/Dockerfile
+    image: morgadoberruezo/webtaller
+    ports:
+      - "8080:80"
+
