@@ -1,5 +1,5 @@
 services:
-  web:
+  ub-base:
     build: 
       context: ${CONTEXTO}
       dockerfile: ./dockerfiles/base/ubbase
