@@ -30,7 +30,7 @@ main(){
    load_entrypoint_ciber &
    config_nginx
  
-   # tail -f /dev/null 
+   tail -f /dev/null 
     
 }
 
