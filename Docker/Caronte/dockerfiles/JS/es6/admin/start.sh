@@ -16,4 +16,3 @@ main(){
 
 main
 
-tail -f /dev/null
