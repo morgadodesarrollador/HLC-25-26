@@ -29,7 +29,7 @@ spec:
             - containerPort: 80
           volumeMounts:
             - name: logs
-              mountPath: /root/logs
+              mountPath: /home/morgado/logs
           resources:
               requests:
                 cpu: "100m"

@@ -6,7 +6,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: iportfolio
+    app: miportfolio
   ports:
     - port: 80
       targetPort: 80
