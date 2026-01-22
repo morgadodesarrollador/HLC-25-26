@@ -4,7 +4,7 @@ metadata:
   name: deploy-miportfolio
   namespace: namespace-miportfolio
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: miportfolio
@@ -16,10 +16,10 @@ spec:
       containers:
         - name: miportfolio
           image: morgadoberruezo/miportfolio:latest
-          imagePullPolicy: Never
-          # envFrom:
-          #   - configMapRef:
-          #       name: iportfolio-config
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: config-miportfolio
           ports:
             - containerPort: 80
           resources:
