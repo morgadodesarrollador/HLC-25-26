@@ -1,8 +1,12 @@
 jenkins:
   controller:
+    runAsUser: 0
+    fsGroup: 0
     admin:
       username: admin
       password: admin123
+    persistence:
+      storageClass: microk8s-hostpath
 
     serviceType: ClusterIP
 
