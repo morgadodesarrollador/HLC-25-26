@@ -26,10 +26,10 @@ jenkins:
       hostName: jenkins.jamorgado.es
     
     installPlugins:
-      - configuration-as-code
+      - configuration-as-code:1963.v24e046127a_3f
       - kubernetes
       - workflow-aggregator
       - credentials
       - github
-      - git
-      - kubernetes
+      - git:5.2.1
+      - kubernetes:4306.vc91e951ea_eb_d
