@@ -1,16 +1,15 @@
-apiVersion: v1
-data:
-  CONTENEDOR: ct$PROYECTO
-  CONTEXTO: /home/morgado/devops/HLC/Docker/Caronte
-  FIRMA: morgadoberruezo
-  PASSWORD: pswmorgado
-  PORT_NODE: "3010"
-  PORT_SSH: "45678"
-  PORT_WWW: "8810"
-  PROYECTO: miportfolio
-  TIPO: personales
-  USUARIO: morgado
+aapiVersion: v1
 kind: ConfigMap
 metadata:
   name: config-miportfolio
-  namespace: namespace-miportfolio
+  namespace: caronte-tienda
+data:
+  PROYECTO: {{ .Values.env.PROYECTO | quote }}
+  TIPO: {{ .Values.env.TIPO | quote }}
+  PORT_WWW: {{ .Values.env.PORT_WWW | quote }}
+  PORT_SSH: {{ .Values.env.PORT_SSH | quote }}
+  USUARIO: {{ .Values.env.USUARIO | quote }}
+  PASSWORD: {{ .Values.env.PASSWORD | quote }}
+  CONTEXTO: {{ .Values.env.CONTEXTO | quote }}
+  FIRMA: {{ .Values.env.FIRMA | quote }}
+  PORT_NODE: {{ .Values.env.PORT_NODE | quote }}
