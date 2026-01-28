@@ -5,8 +5,11 @@ jenkins:
     admin:
       username: admin
       password: admin123
-    # persistence:
-    #   storageClass: microk8s-hostpath
+
+    persistence:
+      enabled: true
+      size: 8Gi
+      storageClass: microk8s-hostpath   # 👈 clave
 
     serviceType: ClusterIP
 
