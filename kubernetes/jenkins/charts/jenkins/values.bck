@@ -688,29 +688,7 @@ controller:
 
   ingress:
     # -- Enables ingress
-    # enabled: false
-    enabled: true
-    
-    ingressClassName: nginx
-
-    annotations: 
-      kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-
-    hostName: jenkins.jamorgado.es
-    # -- Hostname to serve assets from
-    resourceRootUrl:
-    # -- Ingress TLS configuration
-    tls: 
-      - hosts:
-          - jenkins.jamorgado.es
-        secretName: jenkins-tls
-        
-
-      # kubernetes.io/tls-acme: "true"
-    # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
-    # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
-    
+    enabled: false
 
     # Override for the default paths that map requests to the backend
     # -- Override for the default Ingress paths
@@ -731,7 +709,12 @@ controller:
     # -- Ingress labels
     labels: {}
     # -- Ingress annotations
-   
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+    # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
+    # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
+    # ingressClassName: nginx
 
     # Set this path to jenkinsUriPrefix above or use annotations to rewrite path
     # -- Ingress path
@@ -739,7 +722,14 @@ controller:
 
     # configures the hostname e.g. jenkins.example.com
     # -- Ingress hostname
-    
+    hostName:
+    # -- Hostname to serve assets from
+    resourceRootUrl:
+    # -- Ingress TLS configuration
+    tls: []
+    # - secretName: jenkins.cluster.local
+    #   hosts:
+    #     - jenkins.cluster.local
 
   # often you want to have your controller all locked down and private,
   # but you still want to get webhooks from your SCM
