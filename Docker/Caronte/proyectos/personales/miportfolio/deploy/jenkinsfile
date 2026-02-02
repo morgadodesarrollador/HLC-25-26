@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Checkout2') {
       steps {
-        echo "Repositorio clonado correctamente"
+        echo "Repositorio2 clonado correctamente"
         sh 'ls -la'
       }
     }
