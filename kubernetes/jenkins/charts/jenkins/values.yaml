@@ -694,7 +694,7 @@ controller:
     ingressClassName: nginx
 
     annotations: 
-      kubernetes.io/ingress.class: nginx
+      # kubernetes.io/ingress.class: nginx
       cert-manager.io/cluster-issuer: letsencrypt-prod
 
     hostName: jenkins.jamorgado.es
@@ -747,6 +747,15 @@ controller:
   # with a different configuration
   secondaryingress:
     enabled: false
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    hostName: jenkins-webhooks.jamorgado.es
+    tls:
+      - hosts:
+          - jenkins-webhooks.jamorgado.es
+        secretName: jenkins-webhooks-tls
+
     # paths you want forwarded to the backend
     # ex /github-webhook
     paths: []
@@ -754,15 +763,15 @@ controller:
     # For Kubernetes v1.19+, use 'networking.k8s.io/v1'
     apiVersion: "extensions/v1beta1"
     labels: {}
-    annotations: {}
+    # annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
     # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
     # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
     # ingressClassName: nginx
     # configures the hostname e.g., jenkins-external.example.com
-    hostName:
-    tls:
+    # hostName:
+    # tls:
     # - secretName: jenkins-external.example.com
     #   hosts:
     #     - jenkins-external.example.com
