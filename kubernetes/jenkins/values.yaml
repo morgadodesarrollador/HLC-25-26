@@ -41,8 +41,25 @@ jenkins:
       - git
   
   # 🔴 CLAVE: desactivar JCasC
-  # JCasC:
-  #   enabled: false
+  JCasC:
+      enabled: true
+
+      configScripts:
+        base: |
+          jenkins:
+            systemMessage: "Jenkins desplegado con Helm + JCasC"
+            numExecutors: 2
+
+            securityRealm:
+              local:
+                allowsSignup: false
+                users:
+                  - id: "admin"
+                    password: "admin123"
+
+            authorizationStrategy:
+              loggedInUsersCanDoAnything:
+                allowAnonymousRead: false
 
   # 🔴 CLAVE: desactivar sidecar
   # sidecars:
