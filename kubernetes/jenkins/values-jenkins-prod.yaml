@@ -504,6 +504,7 @@ controller:
   # become the content of the configuration yaml file. The first line after this is a JCasC root element, e.g., jenkins, credentials,
   # etc. Best reference is https://<jenkins_url>/configuration-as-code/reference. The example below creates a welcome message:
   JCasC:
+    enabled: false
     # -- Enables default Jenkins configuration via configuration as code plugin
     defaultConfig: true
 
@@ -561,7 +562,7 @@ controller:
       # Auto-reload uses the http://<jenkins_url>/reload-configuration-as-code endpoint to reapply config when changes to
       # the configScripts are detected.
       # -- Enables Jenkins Config as Code auto-reload
-      enabled: true
+      enabled: false
       image:
         # -- Registry for the image that triggers the reload
         registry: docker.io
