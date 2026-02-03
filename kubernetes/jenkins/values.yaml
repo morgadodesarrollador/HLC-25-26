@@ -31,5 +31,10 @@ jenkins:
       - credentials
       - github
       - git
-      - kubernetes
-      
+    
+    JCasC:
+      enabled: false
+
+    sidecars:
+      configAutoReload:
+        enabled: false
