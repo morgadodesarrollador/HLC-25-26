@@ -1,12 +1,5 @@
 
-# 🔴 CLAVE: desactivar JCasC
-JCasC:
-  enabled: false
 
-# 🔴 CLAVE: desactivar sidecar
-sidecars:
-  configAutoReload:
-    enabled: false
 
 jenkins:
   controller:
@@ -41,4 +34,12 @@ jenkins:
       - credentials
       - github
       - git
-    
+  
+  # 🔴 CLAVE: desactivar JCasC
+  JCasC:
+    enabled: false
+
+  # 🔴 CLAVE: desactivar sidecar
+  sidecars:
+    configAutoReload:
+      enabled: false
