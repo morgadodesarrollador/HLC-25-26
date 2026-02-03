@@ -6,27 +6,32 @@ jenkins:
     image:
       repository: jenkins/jenkins
       tag: "2.541.1-lts-jdk21"
+
     runAsUser: 0
     fsGroup: 0
+
     admin:
       username: admin
       password: admin123
+
     persistence:
       enabled: true
       size: 8Gi
       storageClass: microk8s-hostpath   # 👈 clave
+
     serviceType: ClusterIP
+
     ingress:
       enabled: true
       ingressClassName: nginx
       hostName: jenkins.jamorgado.es
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
-        nginx.ingress.kubernetes.io/ssl-redirect: "true"
-      tls:
-        - secretName: jenkins-jamorgado-es-tls
-          hosts:
-            - jenkins.jamorgado.es
+      # annotations:
+      #   cert-manager.io/cluster-issuer: letsencrypt-prod
+      #   nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      # tls:
+      #   - secretName: jenkins-jamorgado-es-tls
+      #     hosts:
+      #       - jenkins.jamorgado.es
     installPlugins:
       - configuration-as-code
       - kubernetes
@@ -36,10 +41,10 @@ jenkins:
       - git
   
   # 🔴 CLAVE: desactivar JCasC
-  JCasC:
-    enabled: false
+  # JCasC:
+  #   enabled: false
 
   # 🔴 CLAVE: desactivar sidecar
-  sidecars:
-    configAutoReload:
-      enabled: false
+  # sidecars:
+  #   configAutoReload:
+  #     enabled: false
