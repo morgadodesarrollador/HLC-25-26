@@ -48,3 +48,8 @@ jenkins:
   # sidecars:
   #   configAutoReload:
   #     enabled: false
+  sidecars:
+    configAutoReload:
+      env:
+        - name: DISABLE_X509_STRICT_VERIFICATION
+          value: "true"
