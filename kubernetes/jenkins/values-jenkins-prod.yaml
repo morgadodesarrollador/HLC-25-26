@@ -554,7 +554,7 @@ controller:
   #   image: "alpine:3"
   #   imagePullPolicy: Always
   #   command: [ "uname", "-a" ]
-
+  existingConfigMap: jenkins
   sidecars:
     configAutoReload:
       # If enabled: true, Jenkins Configuration as Code will be reloaded on-the-fly without a reboot.
