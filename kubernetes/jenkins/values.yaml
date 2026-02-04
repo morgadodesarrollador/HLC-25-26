@@ -3,6 +3,9 @@
 
 jenkins:
   controller:
+    JCasC:
+      enabled: false
+      
     image:
       repository: jenkins/jenkins
       tag: "2.541.1-lts-jdk21"
@@ -41,8 +44,7 @@ jenkins:
       - git
   
   # 🔴 CLAVE: desactivar JCasC
-  # JCasC:
-  #     enabled: true
+
 
   #     configScripts:
   #       base: |
