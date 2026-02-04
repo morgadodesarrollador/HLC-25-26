@@ -12,10 +12,10 @@ jenkins:
 
     sidecars:
       configAutoReload:
-        enabled: true
-        label: jenkins-jenkins-config # el configmap jenkins-jenkins-jcasc-config.yaml
-        folder: /var/jenkins_home/casc_configs
-        searchNamespace: jenkins
+        enabled: false
+        # label: jenkins-jenkins-config # el configmap jenkins-jenkins-jcasc-config.yaml
+        # folder: /var/jenkins_home/casc_configs
+        # searchNamespace: jenkins
     # env:
     #   - name: CASC_JENKINS_CONFIG
     #     value: /var/jenkins_home/casc_configs
