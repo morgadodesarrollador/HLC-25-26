@@ -4,24 +4,23 @@
 jenkins:
   controller:
     # Asegúrate de que esto esté habilitado
-    serviceAccount:
-      create: true
-      name: jenkins
+    # serviceAccount:
+    #   create: true
+    #   name: jenkins
 
     JCasC:
       enabled: true
-      # -- Enables default Jenkins configuration via configuration as code plugin
-      defaultConfig: false
-      overwriteConfiguration: false 
-
+      defaultConfig: true
+      overwriteConfiguration: false
+    
     sidecars:
       configAutoReload:
-        enabled: false
+        enabled: false  # Esto evita que el init container se ejecute
     
     # El sidecar necesita estos permisos
-    rbac:
-      create: true
-      readSecrets: false # Mantén esto en false si no necesitas recarga automática
+    # rbac:
+    #   create: true
+    #   readSecrets: false # Mantén esto en false si no necesitas recarga automática
     
     # JCasC:
     #   enabled: true
