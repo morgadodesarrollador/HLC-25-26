@@ -3,36 +3,18 @@
 
 jenkins:
   controller:
-    # Asegúrate de que esto esté habilitado
-    # serviceAccount:
-    #   create: true
-    #   name: jenkins
 
     JCasC:
-      enabled: true
-      defaultConfig: true
+      enabled: false
+      defaultConfig: false
       overwriteConfiguration: false
     
     sidecars:
       configAutoReload:
         enabled: false  # Esto evita que el init container se ejecute
     
-    # El sidecar necesita estos permisos
-    # rbac:
-    #   create: true
-    #   readSecrets: false # Mantén esto en false si no necesitas recarga automática
-    
-    # JCasC:
-    #   enabled: true
-    #   defaultConfig: false # ⛔ importante: ya tienes tu propio ConfigMap
-    
     configAsCode:
       enabled: false #Si NO haces esto, Helm intentará crear otro ConfigMap
-
-    # sidecars:
-    #   configAutoReload:
-    #     enabled: false
-        
 
     image:
       repository: jenkins/jenkins
@@ -56,13 +38,7 @@ jenkins:
       enabled: true
       ingressClassName: nginx
       hostName: jenkins.jamorgado.es
-      # annotations:
-      #   cert-manager.io/cluster-issuer: letsencrypt-prod
-      #   nginx.ingress.kubernetes.io/ssl-redirect: "true"
-      # tls:
-      #   - secretName: jenkins-jamorgado-es-tls
-      #     hosts:
-      #       - jenkins.jamorgado.es
+     
     installPlugins:
       - configuration-as-code
       - kubernetes
@@ -71,32 +47,4 @@ jenkins:
       - github
       - git
   
-  # 🔴 CLAVE: desactivar JCasC
-
-
-  #     configScripts:
-  #       base: |
-  #         jenkins:
-  #           systemMessage: "Jenkins desplegado con Helm + JCasC"
-  #           numExecutors: 2
-
-  #           securityRealm:
-  #             local:
-  #               allowsSignup: false
-  #               users:
-  #                 - id: "admin"
-  #                   password: "admin123"
-
-  #           authorizationStrategy:
-  #             loggedInUsersCanDoAnything:
-  #               allowAnonymousRead: false
-
-  # 🔴 CLAVE: desactivar sidecar
-  # sidecars:
-  #   configAutoReload:
-  #     enabled: false
-  # sidecars:
-  #   configAutoReload:
-  #     env:
-  #       - name: DISABLE_X509_STRICT_VERIFICATION
-  #         value: "true"
+ 
