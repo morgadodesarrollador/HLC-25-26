@@ -4,21 +4,26 @@
 jenkins:
   controller:
     JCasC:
-      enabled: true
-      defaultConfig: false # ⛔ importante: ya tienes tu propio ConfigMap
+      enabled: false
+      # -- Enables default Jenkins configuration via configuration as code plugin
+      defaultConfig: true
+      overwriteConfiguration: false
+    sidecars:
+      configAutoReload:
+      enabled: false
+    
+    
+    # JCasC:
+    #   enabled: true
+    #   defaultConfig: false # ⛔ importante: ya tienes tu propio ConfigMap
     
     configAsCode:
       enabled: false #Si NO haces esto, Helm intentará crear otro ConfigMap
 
-    sidecars:
-      configAutoReload:
-        enabled: false
-        # label: jenkins-jenkins-config # el configmap jenkins-jenkins-jcasc-config.yaml
-        # folder: /var/jenkins_home/casc_configs
-        # searchNamespace: jenkins
-    # env:
-    #   - name: CASC_JENKINS_CONFIG
-    #     value: /var/jenkins_home/casc_configs
+    # sidecars:
+    #   configAutoReload:
+    #     enabled: false
+        
 
     image:
       repository: jenkins/jenkins
