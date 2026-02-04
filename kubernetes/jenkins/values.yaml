@@ -16,9 +16,9 @@ jenkins:
         label: jenkins-jenkins-config # el configmap jenkins-jenkins-jcasc-config.yaml
         folder: /var/jenkins_home/casc_configs
         searchNamespace: jenkins
-    env:
-      - name: CASC_JENKINS_CONFIG
-        value: /var/jenkins_home/casc_configs
+    # env:
+    #   - name: CASC_JENKINS_CONFIG
+    #     value: /var/jenkins_home/casc_configs
 
     image:
       repository: jenkins/jenkins
