@@ -5,7 +5,7 @@ jenkins:
   controller:
     JCasC:
       enabled: true
-      defaultConfig: false # ⛔ importante: ya tienes tu propio ConfigMap
+      defaultConfig: true # ⛔ importante: ya tienes tu propio ConfigMap
     
     configAsCode:
       enabled: false #Si NO haces esto, Helm intentará crear otro ConfigMap
