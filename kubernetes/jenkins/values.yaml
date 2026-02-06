@@ -1,50 +1,36 @@
-
-
-
 jenkins:
   controller:
-
+    # Deshabilita JCasC para evitar el sidecar problemático
     JCasC:
       enabled: false
       defaultConfig: false
-      overwriteConfiguration: false
-    
+      
     sidecars:
       configAutoReload:
-        enabled: false  # Esto evita que el init container se ejecute
+        enabled: false
     
     configAsCode:
-      enabled: false #Si NO haces esto, Helm intentará crear otro ConfigMap
-
+      enabled: false
+    
     image:
       repository: jenkins/jenkins
-      tag: "2.541.1-lts-jdk21"
-
+      tag: "2.541.1-jdk21"
+    
     runAsUser: 0
     fsGroup: 0
-
+    
     admin:
       username: admin
       password: admin123
-
+    
     persistence:
       enabled: true
       size: 8Gi
-      storageClass: microk8s-hostpath   # 👈 clave
-
+      storageClass: microk8s-hostpath
+    
     serviceType: ClusterIP
-
+    
     ingress:
       enabled: true
       ingressClassName: nginx
       hostName: jenkins.jamorgado.es
-     
-    installPlugins:
-      - configuration-as-code
-      - kubernetes
-      - workflow-aggregator
-      - credentials
-      - github
-      - git
-  
- 
