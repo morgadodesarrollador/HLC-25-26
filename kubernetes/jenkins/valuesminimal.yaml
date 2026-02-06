@@ -17,8 +17,17 @@ jenkins:
       enabled: true
       ingressClassName: nginx
       hostName: jenkins.jamorgado.es
-    installPlugins: []
-    additionalPlugins: []
+    # CRÍTICO: Deshabilita JCasC completamente
+    JCasC:
+      defaultConfig: false
+      configScripts: {}
+    
+    # CRÍTICO: Deshabilita el sidecar
+    sidecars:
+      configAutoReload:
+        enabled: false
+      installPlugins: []
+      additionalPlugins: []
     # installPlugins:
     #   - configuration-as-code
     #   - kubernetes
