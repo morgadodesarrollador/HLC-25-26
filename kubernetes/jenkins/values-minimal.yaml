@@ -17,11 +17,13 @@ jenkins:
       enabled: true
       ingressClassName: nginx
       hostName: jenkins.jamorgado.es
-    installPlugins:
-      - configuration-as-code
-      - kubernetes
-      - workflow-aggregator
-      - credentials
-      - github
-      - git
-      - kubernetes
+    installPlugins: []
+    additionalPlugins: []
+    # installPlugins:
+    #   - configuration-as-code
+    #   - kubernetes
+    #   - workflow-aggregator
+    #   - credentials
+    #   - github
+    #   - git
+    #   - kubernetes
