@@ -1,8 +1,8 @@
 jenkins:
   controller:
-    image:
-      repository: jenkins/jenkins
-      tag: "2.541.1-lts-jdk21"
+    # image:
+    #   repository: jenkins/jenkins
+    #   tag: "2.541.1-lts-jdk21"
     runAsUser: 0
     fsGroup: 0
     admin:
