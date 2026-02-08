@@ -2,8 +2,8 @@ jenkins:
   controller:
     image:
       repository: jenkins/jenkins
-      tag: "2.541.1-lts-jdk21"
-      # tag: "2.479.3-lts-jdk21"
+      # tag: "2.541.1-lts-jdk21"
+      tag: "2.479.3-lts-jdk17"
     runAsUser: 0
     fsGroup: 0
     admin:
@@ -29,10 +29,10 @@ jenkins:
         enabled: false
       installPlugins: []
       additionalPlugins: []
-    installPlugins:
-      - configuration-as-code:1963.v24e046127a_3f
-      - kubernetes:4306.vc91e951ea_eb_d
-      - workflow-aggregator
-      - git:5.2.1
-      - credentials
-      - github
+    # installPlugins:
+    #   - configuration-as-code:1963.v24e046127a_3f
+    #   - kubernetes:4306.vc91e951ea_eb_d
+    #   - workflow-aggregator
+    #   - git:5.2.1
+    #   - credentials
+    #   - github
