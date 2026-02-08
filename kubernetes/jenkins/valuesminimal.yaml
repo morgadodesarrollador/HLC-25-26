@@ -29,9 +29,9 @@ jenkins:
       installPlugins: []
       additionalPlugins: []
     installPlugins:
-      - configuration-as-code:1932.v75cb_b_f1b_698d
-      - kubernetes:4295.v7fa_01b_309c95
-      - workflow-aggregator:600.vb_57cdd26fdd7
+      - configuration-as-code:2006.v001a_2ca_6b_574
+      - kubernetes:4392.v19cea_fdb_5913
+      - workflow-aggregator:608.v67378e9d3db_1
+      - git:5.8.0
       - credentials:1453.v9b_a_29777a_b_fd
       - github:1.40.0
-      - git:5.6.0
