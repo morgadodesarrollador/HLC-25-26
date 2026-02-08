@@ -27,10 +27,8 @@ jenkins:
     # CRÍTICO: Deshabilita el sidecar
     sidecars:
       configAutoReload:
-        enabled: true
-        env:
-          - name: SKIP_TLS_VERIFY
-            value: "true"
+        enabled: false
+
     installPlugins:
       # - configuration-as-code:1963.v24e046127a_3f
       - kubernetes:4306.vc91e951ea_eb_d
