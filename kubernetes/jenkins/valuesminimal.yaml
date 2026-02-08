@@ -2,8 +2,8 @@ jenkins:
   controller:
     image:
       repository: jenkins/jenkins
-      # tag: "2.541.1-lts-jdk21"
-      tag: "2.479.3-lts-jdk17"
+      tag: "2.541.1-lts-jdk21"
+      # tag: "2.479.3-lts-jdk17"
     runAsUser: 0
     fsGroup: 0
     admin:
