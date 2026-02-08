@@ -20,6 +20,7 @@ jenkins:
       hostName: jenkins.jamorgado.es
     # CRÍTICO: Deshabilita JCasC completamente
     JCasC:
+      enabled: false
       defaultConfig: false
       configScripts: {}
     
@@ -27,8 +28,6 @@ jenkins:
     sidecars:
       configAutoReload:
         enabled: false
-      installPlugins: []
-      additionalPlugins: []
     installPlugins:
       # - configuration-as-code:1963.v24e046127a_3f
       - kubernetes:4306.vc91e951ea_eb_d
