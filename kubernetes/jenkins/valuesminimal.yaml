@@ -31,8 +31,8 @@ jenkins:
       additionalPlugins: []
     installPlugins:
       - configuration-as-code:1963.v24e046127a_3f
-      - kubernetes
+      - kubernetes:4306.vc91e951ea_eb_d
       - workflow-aggregator
-      - git
+      - git:5.2.1
       - credentials
       - github
