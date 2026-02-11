@@ -1,4 +1,4 @@
-jenins:
+jenkins:
   controller:
     image:
         repository: jenkins/jenkins
