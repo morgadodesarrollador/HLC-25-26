@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deploy-miportfolio
+  name: deploy-{{ .Values.app.name }}
   namespace: {{ .Release.Namespace }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.app.container.replicas }}
   selector:
     matchLabels:
-      app: miportfolio
+      app: {{ .Values.app.name }}
   template:
     metadata:
       labels:
-        app: miportfolio
+        app: {{ .Values.app.name }}
     spec:
       volumes:
         - name: logs
@@ -19,14 +19,14 @@ spec:
             path: /root/logs
             type: DirectoryOrCreate
       containers:
-        - name: miportfolio
-          image: morgadoberruezo/miportfolio:latest
-          imagePullPolicy: Always
+        - name: {{ .Values.app.container.name }}
+          image: {{ .Values.app.image.repository }}:{{ .Values.app.image.tag }}
+          imagePullPolicy: {{ .Values.app.image.pullPolicy }}
           envFrom:
             - configMapRef:
-                name: config-miportfolio
+                name: config-{{ .Values.app.name }}
           ports:
-            - containerPort: 80
+            - containerPort: {{ .Values.app.container.port }}
           volumeMounts:
             - name: logs
               mountPath: /root/logs
