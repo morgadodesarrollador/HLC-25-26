@@ -1,32 +1,33 @@
-controller:
-  image:
-      repository: jenkins/jenkins
-      tag: "2.541.1-lts-jdk21"
-  runAsUser: 1000
-  fsGroup: 1000
-  admin:
-    username: admin
-    password: admin123
-  persistence:
-    enabled: true
-    size: 8Gi
-    storageClass: microk8s-hostpath   # 👈 clave
-  serviceType: ClusterIP
-  sidecars:
-    configAutoReload:
+jenins:
+  controller:
+    image:
+        repository: jenkins/jenkins
+        tag: "2.541.1-lts-jdk21"
+    runAsUser: 1000
+    fsGroup: 1000
+    admin:
+      username: admin
+      password: admin123
+    persistence:
       enabled: true
-      image:
-        repository: kiwigrid/k8s-sidecar
-        tag: "1.27.4"
-  ingress:
-    enabled: true
-    ingressClassName: nginx
-    hostName: jenkins.jamorgado.es
-  additionalPlugins: []
-  installPlugins:
-    - configuration-as-code
-    - kubernetes
-    - workflow-aggregator
-    - credentials
-    - github
-    - git
+      size: 8Gi
+      storageClass: microk8s-hostpath   # 👈 clave
+    serviceType: ClusterIP
+    sidecars:
+      configAutoReload:
+        enabled: true
+        image:
+          repository: kiwigrid/k8s-sidecar
+          tag: "1.27.4"
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      hostName: jenkins.jamorgado.es
+    additionalPlugins: []
+    installPlugins:
+      - configuration-as-code
+      - kubernetes
+      - workflow-aggregator
+      - credentials
+      - github
+      - git
