@@ -1,8 +1,5 @@
 jenkins:
   controller:
-    # image:
-    #   repository: jenkins/jenkins
-    #   tag: "2.541.1-lts-jdk21"
     runAsUser: 0
     fsGroup: 0
     admin:
@@ -13,6 +10,12 @@ jenkins:
       size: 8Gi
       storageClass: microk8s-hostpath   # 👈 clave
     serviceType: ClusterIP
+    sidecars:
+      configAutoReload:
+        enabled: true
+        image:
+          repository: kiwigrid/k8s-sidecar
+          tag: "1.27.4"
     ingress:
       enabled: true
       ingressClassName: nginx
