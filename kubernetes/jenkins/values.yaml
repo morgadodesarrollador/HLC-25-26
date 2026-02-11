@@ -1,8 +1,8 @@
 jenkins:
   controller:
-    image:
-      repository: jenkins/jenkins
-      tag: "2.541.1-lts-jdk21"
+    # image:
+    #   repository: jenkins/jenkins
+    #   tag: "2.541.1-lts-jdk21"
     runAsUser: 0
     fsGroup: 0
     admin:
@@ -17,13 +17,11 @@ jenkins:
       enabled: true
       ingressClassName: nginx
       hostName: jenkins.jamorgado.es
-    installPlugins: []
     additionalPlugins: []
-    # installPlugins:
-    #   - configuration-as-code
-    #   - kubernetes
-    #   - workflow-aggregator
-    #   - credentials
-    #   - github
-    #   - git
-    #   - kubernetes
+    installPlugins:
+      - configuration-as-code
+      - kubernetes
+      - workflow-aggregator
+      - credentials
+      - github
+      - git
