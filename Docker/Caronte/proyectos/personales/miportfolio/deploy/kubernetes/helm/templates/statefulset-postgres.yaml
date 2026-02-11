@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ .Values.postgres.name }}
+  name: statefull-{{ .Values.postgres.name }}
   namespace: {{ .Release.Namespace }}
 spec:
   serviceName: {{ .Values.postgres.name }}
@@ -19,21 +19,23 @@ spec:
         app: {{ .Values.postgres.name }}
     spec:
       containers:
-        - name: postgres
+        - name: {{ .Values.postgres.name }}
           image: "{{ .Values.postgres.image.repository }}:{{ .Values.postgres.image.tag }}"
           imagePullPolicy: {{ .Values.postgres.image.pullPolicy }}
           ports:
-            - containerPort: 5432
+            - containerPort: {{ .Values.postgres.service.port }}
           env:
             - name: POSTGRES_DB
               value: {{ .Values.postgres.auth.database | quote }}
             - name: POSTGRES_USER
               value: {{ .Values.postgres.auth.username | quote }}
             - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.app.container.name }}-postgres-secret
-                  key: POSTGRES_PASSWORD
+              value: {{ .Values.postgres.auth.password | quote }}
+
+              # valueFrom:
+              #   secretKeyRef:
+              #     name: {{ .Values.app.container.name }}-postgres-secret
+              #     key: POSTGRES_PASSWORD
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
