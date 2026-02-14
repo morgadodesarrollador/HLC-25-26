@@ -1,0 +1,20 @@
+argo-cd:
+  enabled: true
+
+  server:
+  
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      hosts:
+        - argocd.jamorgado.es
+      tls:
+        - hosts:
+            - argocd.jamorgado.es
+          secretName: argocd-tls
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+
+  configs:
+    params:
+      server.insecure: true
