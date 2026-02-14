@@ -9,9 +9,9 @@ argo-cd:
     ingress:
       enabled: true
       ingressClassName: nginx
-
-      hosts:
-        - argocd.jamorgado.es
+      hostname: argocd.jamorgado.es
+      # hosts:
+      #   - argocd.jamorgado.es
 
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
