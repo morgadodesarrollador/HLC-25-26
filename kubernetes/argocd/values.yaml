@@ -2,7 +2,9 @@ argo-cd:
   enabled: true
 
   server:
-  
+    extraArgs:
+      - --insecure   # 👈 MUY IMPORTANTE
+
     ingress:
       enabled: true
       ingressClassName: nginx
@@ -14,7 +16,3 @@ argo-cd:
           secretName: argocd-tls
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-
-  configs:
-    params:
-      server.insecure: true
