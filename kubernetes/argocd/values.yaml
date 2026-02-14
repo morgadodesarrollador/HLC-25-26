@@ -1,9 +1,7 @@
 argo-cd:
-  enabled: true
-
   server:
     extraArgs:
-      - --insecure   # 👈 MUY IMPORTANTE
+      - --insecure
 
     ingress:
       enabled: true
