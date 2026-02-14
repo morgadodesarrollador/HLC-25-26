@@ -1,16 +1,22 @@
 argo-cd:
-  server:
-    extraArgs:
-      - --insecure
+  enabled: true
 
+  configs:
+    params:
+      server.insecure: true   # recomendado si TLS termina en ingress
+
+  server:
     ingress:
       enabled: true
       ingressClassName: nginx
+
       hosts:
         - argocd.jamorgado.es
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+
       tls:
         - hosts:
             - argocd.jamorgado.es
-          secretName: argocd-tls
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
+          secretName: argocd-server-tls
