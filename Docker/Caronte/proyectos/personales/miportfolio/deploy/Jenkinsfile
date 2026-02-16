@@ -1,17 +1,36 @@
 pipeline {
   agent any
-
+  environment {
+        
+        NAMESPACE="miportfolio"
+        DOCKER_IMAGE = "morgadoberruezo/portfolio"
+        DOCKER_TAG = "latest"
+        DOCKER_CREDENTIALS_ID = "dockerHub"
+        DOCKER_USER="morgadoberruezo@gmail.com"
+        DOCKER_PASS="Claudia2009?"
+        REPO="hhttps://github.com/morgadodesarrollador/portfolioHelm.git"
+  }
   stages {
-    stage('Checkout') {
+    stage('Docker Login1') {
       steps {
-        echo "Repositorio clonado correctamente"
-        sh 'ls -la'
+        withCredentials([usernamePassword(
+            credentialsId: "${DOCKER_CREDENTIALS_ID}",
+            usernameVariable: 'DOCKER_USER',
+            passwordVariable: 'DOCKER_PASS'
+        )]) {
+          script {
+            sh """
+                docker ps
+                echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+            """
+          }
+        }
       }
     }
-
-    stage('Info') {
+    //Clona el repo donde está el Jenkinsfile (el mismo que configuraste en el job).
+    stage('Checkout') {
       steps {
-        sh 'git rev-parse --short HEAD'
+        checkout scm
       }
     }
   }
