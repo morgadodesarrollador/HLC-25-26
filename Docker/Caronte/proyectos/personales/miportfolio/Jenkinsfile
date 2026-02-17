@@ -11,7 +11,7 @@ pipeline {
         REPO="https://github.com/morgadodesarrollador/portfolioHelm.git"
   }
   stages {
-    stage('Docker Login') {
+    stage('Docker Login1') {
       steps {
         withCredentials([usernamePassword(
             credentialsId: "${DOCKER_CREDENTIALS_ID}",
