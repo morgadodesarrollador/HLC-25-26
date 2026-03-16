@@ -1,7 +1,7 @@
-app:
-  name: miportfolio
+api:
+  name: apipokemon
   image:
-    repository: morgadoberruezo/miportfolio
+    repository: morgadoberruezo/apipokemonnest
     tag: latest
     pullPolicy: Always
   # containerPort: 3000   
@@ -12,7 +12,7 @@ app:
   service:
     type: ClusterIP
     port: 3000
-    targetPort: 30087
+    nodePort: 30087
   ingress:
     enabled: true
     className: nginx
@@ -41,3 +41,10 @@ postgres:
     enabled: true
     size: 2Gi
     storageClassName: "microk8s-hostpath"   # pon aquí tu storageClass si quieres fijarla
+
+env:
+  NODE_ENV: "production"
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: "bdusuarios"
+  DATABASE_USER: "admin"
+  DATABASE_PASSWORD: "admin"

@@ -1,36 +1,73 @@
 pipeline {
-  agent any
-  environment {
-        
-        NAMESPACE="miportfolio"
-        DOCKER_IMAGE = "morgadoberruezo/portfolio"
-        DOCKER_TAG = "latest"
-        DOCKER_CREDENTIALS_ID = "dockerHub"
-        DOCKER_USER="morgadoberruezo@gmail.com"
-        DOCKER_PASS="Claudia2009?"
-        REPO="hhttps://github.com/morgadodesarrollador/portfolioHelm.git"
-  }
-  stages {
-    stage('Docker Login1') {
-      steps {
-        withCredentials([usernamePassword(
-            credentialsId: "${DOCKER_CREDENTIALS_ID}",
-            usernameVariable: 'DOCKER_USER',
-            passwordVariable: 'DOCKER_PASS'
-        )]) {
-          script {
-            sh """
-                docker ps
-                echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-            """
-          }
-        }
-      }
+  agent {
+    kubernetes {
+      yaml """
+      apiVersion: v1
+      kind: Pod
+      spec:
+        containers:
+        - name: kaniko
+          image: gcr.io/kaniko-project/executor:debug
+          command:
+            - /busybox/cat
+          tty: true
+          volumeMounts:
+            - name: docker-config
+              mountPath: /kaniko/.docker
+
+        volumes:
+          - name: docker-config
+            secret:
+              secretName: dockerhub-secret
+      """
     }
-    //Clona el repo donde está el Jenkinsfile (el mismo que configuraste en el job).
+  }
+
+  environment {
+    IMAGE = "morgadoberruezo/miportfolio:latest"
+  }
+
+  stages {
+
     stage('Checkout') {
       steps {
         checkout scm
+      }
+    }
+
+    stage('Build & Push Image') {
+      steps {
+        container('kaniko') {
+          sh """
+          /kaniko/executor \
+            --context `pwd` \
+            --dockerfile deploy/build_img/Dockerfile \
+            --destination morgadoberruezo/portfolio:${GIT_COMMIT} \
+            --destination morgadoberruezo/portfolio:latest \
+            --snapshot-mode=redo \
+            --single-snapshot
+          """
+        }
+      }
+    }
+    stage('Create ArgoCD Repo Secret') {
+      steps {
+        withCredentials([usernamePassword(
+          credentialsId: '493c2a96-7449-446a-bc47-ece0e330cf16',
+          usernameVariable: 'GIT_USER',
+          passwordVariable: 'GIT_TOKEN'
+        )])
+         {
+          sh """
+          kubectl create secret generic repo-secret-cred \
+            --namespace argocd \
+            --from-literal=type=git \
+            --from-literal=url=https://github.com/morgadodesarrollador/portfolioHelm.git \
+            --from-literal=username=morgadodesarrollador \
+            --from-literal=password=${$GIT_TOKEN} \
+            --dry-run=client -o yaml | kubectl apply -f -
+          """
+        }
       }
     }
   }

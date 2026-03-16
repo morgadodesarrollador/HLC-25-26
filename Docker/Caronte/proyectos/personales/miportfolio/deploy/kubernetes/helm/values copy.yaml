@@ -10,7 +10,7 @@ app:
     port: 80
     replicas: 1
   service:
-    type: NodePort
+    type: ClusterIP
     port: 3000
     nodePort: 30087
   ingress:
@@ -41,3 +41,10 @@ postgres:
     enabled: true
     size: 2Gi
     storageClassName: "microk8s-hostpath"   # pon aquí tu storageClass si quieres fijarla
+
+env:
+  NODE_ENV: "production"
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: "bdusuarios"
+  DATABASE_USER: "admin"
+  DATABASE_PASSWORD: "admin"
