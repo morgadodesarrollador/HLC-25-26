@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: n8nio/n8n
@@ -10,27 +10,28 @@ service:
   port: 80
   targetPort: 5678
 
-main:
-  extraEnv:
+n8n:
+  encryptionKey: "super-secret-key"
 
-    N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
-    N8N_HOST: n8n.jamorgado.es
-    N8N_PORT: "5678"
-    N8N_PROTOCOL: https
+extraEnv:
+  - name: N8N_BASIC_AUTH_ACTIVE
+    value: "true"
+  - name: N8N_BASIC_AUTH_USER
+    value: admin
+  - name: N8N_BASIC_AUTH_PASSWORD
+    value: admin123
 
-    NODE_ENV: production
-
-    WEBHOOK_URL: https://n8n.jamorgado.es/
-
-    GENERIC_TIMEZONE: Europe/Madrid
-    TZ: Europe/Madrid
-
-    N8N_RUNNERS_ENABLED: "true"
-    N8N_SECURE_COOKIE: "false"
+  - name: N8N_HOST
+    value: n8n.jamorgado.es
+  - name: N8N_PROTOCOL
+    value: https
+  - name: WEBHOOK_URL
+    value: https://n8n.jamorgado.es/
 
 persistence:
   enabled: true
   size: 10Gi
+  accessMode: ReadWriteOnce
 
 ingress:
   enabled: true
@@ -38,6 +39,7 @@ ingress:
 
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
 
   hosts:
     - host: n8n.jamorgado.es
