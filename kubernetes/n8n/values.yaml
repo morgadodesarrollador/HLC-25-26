@@ -7,7 +7,8 @@ image:
 
 service:
   type: ClusterIP
-  port: 5678
+  port: 80
+  targetPort: 5678
 
 n8n:
   encryptionKey: "super-secret-key"
