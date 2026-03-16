@@ -21,7 +21,7 @@ extraEnv:
     value: admin123
 
   - name: N8N_HOST
-    value: n8n.midominio.com
+    value: n8n.jamorgado.es
   - name: N8N_PROTOCOL
     value: https
   - name: WEBHOOK_URL
