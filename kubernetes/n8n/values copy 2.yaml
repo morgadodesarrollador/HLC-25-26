@@ -24,14 +24,8 @@ main:
     - name: N8N_PROTOCOL
       value: https
 
-    - name: N8N_RUNNERS_ENABLED
-      value: "true"
-
     - name: NODE_ENV
       value: production
-
-    - name: N8N_SECURE_COOKIE
-      value: "false"
 
     - name: WEBHOOK_URL
       value: https://n8n.jamorgado.es/
@@ -42,6 +36,12 @@ main:
     - name: TZ
       value: Europe/Madrid
 
+    - name: N8N_RUNNERS_ENABLED
+      value: "true"
+
+    - name: N8N_SECURE_COOKIE
+      value: "false"
+      
 persistence:
   enabled: true
   size: 10Gi
@@ -52,8 +52,6 @@ ingress:
 
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: n8n-headers@kubernetescrd
 
   hosts:
     - host: n8n.jamorgado.es
