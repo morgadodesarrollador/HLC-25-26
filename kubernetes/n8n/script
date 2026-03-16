@@ -1,0 +1,5 @@
+helm install n8n \
+oci://8gears.container-registry.com/library/n8n \
+-n n8n \
+--create-namespace \
+-f values.yaml
