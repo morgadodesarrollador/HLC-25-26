@@ -12,22 +12,36 @@ service:
 
 main:
   extraEnv:
+    - name: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+      value: "true"
 
-    N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
-    N8N_HOST: n8n.jamorgado.es
-    N8N_PORT: "5678"
-    N8N_PROTOCOL: https
+    - name: N8N_HOST
+      value: n8n.jamorgado.es
 
-    NODE_ENV: production
+    - name: N8N_PORT
+      value: "5678"
 
-    WEBHOOK_URL: https://n8n.jamorgado.es/
+    - name: N8N_PROTOCOL
+      value: https
 
-    GENERIC_TIMEZONE: Europe/Madrid
-    TZ: Europe/Madrid
+    - name: NODE_ENV
+      value: production
 
-    N8N_RUNNERS_ENABLED: "true"
-    N8N_SECURE_COOKIE: "false"
+    - name: WEBHOOK_URL
+      value: https://n8n.jamorgado.es/
 
+    - name: GENERIC_TIMEZONE
+      value: Europe/Madrid
+
+    - name: TZ
+      value: Europe/Madrid
+
+    - name: N8N_RUNNERS_ENABLED
+      value: "true"
+
+    - name: N8N_SECURE_COOKIE
+      value: "false"
+      
 persistence:
   enabled: true
   size: 10Gi
